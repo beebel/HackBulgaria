@@ -1,59 +1,61 @@
-from prime_digit import to_digits
+def nToDigitsPosList(num):
+    listDigits = []
+    if num == 0:
+        listDigits.append(num)
+    while num > 0:
+        listDigits.append(num % 10)
+        num = (num - num % 10) // 10
+    listDigits.reverse()
+    return listDigits
 
-def bigger(a, b):
-    if a >= b:
-        return a
-    else:
-        return b
+def smallestPossible(num):
+    result = []
+    listNum = nToDigitsPosList(num)
+    lengthNum = 0
+    stop = len(listNum)
+    while lengthNum < stop:
+        i = 0
+        while i <= 9:
+            if i in listNum:
+               listNum.remove(i)
+               result = result + [i]
+               i = 9
+            i += 1
+        lengthNum += 1
+    return result
 
-def smallestPossible(nums):
+def largestPossible(num):
+    result = []
+    listNum = nToDigitsPosList(num)
+    lengthNum = 0
+    stop = len(listNum)
+    while lengthNum < stop:
+        i = 9
+        while i >= 0:
+            if i in listNum:
+               listNum.remove(i)
+               result = result + [i]
+               i = 0
+            i -= 1
+        lengthNum += 1
+    return result
 
-    biggest = 9
-    indexPosSmallest = 0
-    smallestArrange = []
-    i = 0
-    while i < len(nums):
-        if nums[i] < biggest:
-            biggest = nums[i]
-            indexPosSmallest = i
-            
-        smallestArrange.append(nums[i])
-        i = i + 1
-
-    return smallestArrange
-
-def largestPossible(nums):
-
-    smallest = 0
-    indexPosBiggest = 0
-    biggestArrange = []
-    i = 0
-    while i < len(nums):
-        if nums[i] > smallest:
-            smallest = nums[i]
-            indexPosBiggest = i
-            
-        biggestArrange.append(nums[i])
-        i = i + 1
-
-    return biggestArrange
-
-def printNumber(list):
-    text = ""
+def returnNum(list):
+    result =""
     for e in list:
-        text = text + str(e)
-
-    return text
+        result = result + str(e)
+    num = int(result)
+    return num
 
 def main():
     n = input("Enter n: ")
-    nDigitsList = to_digits(n)
+    n = int(n)
 
-    largest = largestPossible(nDigitsList)
-    smallest = smallestPossible(nDigitsList)
+    largest = returnNum(largestPossible(n))
+    smallest = returnNum(smallestPossible(n))
     
-    print(largest)#"Lagest: %d" % 
-    print(smallest)#"Smallest: %d" % 
+    print("Lagest: %d" % largest)
+    print("Smallest: %d" % smallest)
 
 
 if __name__ == "__main__":
