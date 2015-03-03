@@ -1,3 +1,8 @@
+import re
+def splitInput(inp):
+    result = re.split("\W+", inp)
+    return result[:-1]
+
 def count_words(words):
     result = {}
     for e in words:
@@ -5,9 +10,10 @@ def count_words(words):
     return result
 
 def main():
+    text = input("Enter your text: ")
 
     lst = ["words", "are", "meaningful", "words", "words", "are"]
-    print(count_words(lst))
+    print(count_words(splitInput(text)))
 
 if __name__ == "__main__":
     main()
