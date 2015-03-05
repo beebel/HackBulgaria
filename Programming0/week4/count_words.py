@@ -12,7 +12,6 @@ def count_words(words):
 def main():
     text = input("Enter your text: ")
 
-    lst = ["words", "are", "meaningful", "words", "words", "are"]
     print(count_words(splitInput(text)))
 
 if __name__ == "__main__":
