@@ -9,7 +9,7 @@ def get_people_count(activity):
     return len(names)
 
 def main():
-    names = generate_test(4)
+    names = generate_test(5)
     print(names)
     print(get_people_count(names))
 
