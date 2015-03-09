@@ -6,10 +6,8 @@ def max_score(beers, fries):
     for i in range(len(beers)):
         if beers[i] < 0 or fries[i] < 0:
             result.append(-(abs(beers[i]) * abs(fries[i])))
-            print(result[i])
         else:
             result.append(beers[i] * fries[i])
-            print(result[i])
 
     maxScore = sum(result)
 
@@ -24,4 +22,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-1531036
