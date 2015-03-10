@@ -5,17 +5,17 @@ def magic_square(square):
     result = True
     magicSum = sum(square[0])
     
-    for i in range(len(square)):  # check for rows
-        sumTemp = sum(square[i])
+    for row in range(len(square)):  # check for rows
+        sumTemp = sum(square[row])
         if sumTemp != magicSum:
             result = False
             break
         
     if result:          # check for columns
         sumTemp = 0
-        for j in range(len(square)):
-            for i in range(len(square)):
-                sumTemp = sumTemp + square[i][j]
+        for col in range(len(square)):
+            for row in range(len(square)):
+                sumTemp = sumTemp + square[row][col]
             if sumTemp != magicSum:
                 result = False
                 break
@@ -24,19 +24,19 @@ def magic_square(square):
                 
     if result:           # main diagonal
         sumTemp = 0
-        for i in range(len(square)):
-            sumTemp = sumTemp + square[i][i]
+        for row in range(len(square)):
+            sumTemp = sumTemp + square[row][row]
         if sumTemp != magicSum:
             result = False
             
     if result:           # for second diagonal
         sumTemp = 0
-        i = 0
-        j = len(square) - 1
-        while i < len(square):
-            sumTemp = sumTemp + square[i][j]
-            i += 1
-            j -= 1
+        row = 0
+        col = len(square) - 1
+        while row < len(square):
+            sumTemp = sumTemp + square[row][col]
+            row += 1
+            col -= 1
         if sumTemp != magicSum:
             result = False
 
