@@ -1,36 +1,18 @@
-"""
-to do
-"""
-
-def tail(items):
-    result = []
-
-    for index in range(1, len(items)):
-        item = items[index]
-        result += [item]
-
-    return result
-
-
-def take(n, items):
-    result = []
-
-    for index in range(0, min(n, len(items))):
-        result += [items[index]]
+def sublist(target, search):
+    #matches = []
+    result = False
+    if len(search) == 0:
+        return True
+    elif len(search) > len(target):
+        return False
+    else:
+        for i in range(len(target)):
+            if target[i] == search[0] and target[i:i+len(search)] == search:
+                #matches.append(search)
+                result = True
+                break       #del line to operate with matches found
 
     return result
-
-
-def sublist(l1, l2):
-  n = len(l1)
-
-  while len(l2) != 0:
-    if take(n, l2) == l1:
-      return True
-    
-    l2 = tail(l2)
-
-  return False
 
 def main():
     target = input("Enter first list: ")
